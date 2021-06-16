@@ -26,7 +26,7 @@ def main(n):
     for i in range(n):
         if is_amicable(i):
             amicables.append(i)
-    # print(amicables)
+    # print(amicable)
     return sum(amicables)
 
 if __name__ == "__main__":
