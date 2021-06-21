@@ -1,4 +1,4 @@
-def fractionToDecimal(n, d):
+def repeatingSequenceOfFraction(n, d):
     '''
     Returns repeating sequence of a fraction.
     If sequence doesn't exist returns empty string
@@ -22,7 +22,7 @@ def fractionToDecimal(n, d):
 def main():
     s, ind = 0, 0
     for i in range(1, 1000):
-        m = len(fractionToDecimal(1, i))
+        m = len(repeatingSequenceOfFraction(1, i))
         if m > s:
             s = m
             ind = i
