@@ -15,7 +15,6 @@ def isPrime(n):
     return True
 
 primes = []
-
 for i in range(1000):
     if isPrime(i):
         primes.append(i)
