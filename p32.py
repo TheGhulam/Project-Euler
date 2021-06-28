@@ -1,9 +1,8 @@
-def pandigital(n):
-    #To-Do
-    nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    for i in n:
-        if i in nums:
-            nums.remove(i)
+p = set()
 
+for a in range(1, 100):
+    for b in range(1, 9999 // a):
+        if ''.join(sorted("%d%d%d" % (a, b, a*b))) == '123456789':
+            p.add(a * b)
 
-
+print(sum(p))
