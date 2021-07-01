@@ -2,7 +2,7 @@ from math import log, ceil
 
 
 # Using "Sieve of Erathosthenes"
-def find_primes(limit):
+def sieve(limit):
     nums = [True] * (limit + 1)
     nums[0] = nums[1] = False
 
@@ -20,7 +20,7 @@ def upper_bound_for_p_n(n):
 
 
 def find_n_prime(n):
-    primes = list(find_primes(upper_bound_for_p_n(n)))
+    primes = list(sieve(upper_bound_for_p_n(n)))
     return primes[n-1]
 
 
