@@ -1,14 +1,16 @@
 def pandigital(n, p):
-    s = ''
-    for i in range(1, p+1):
+    s = ""
+    for i in range(1, p + 1):
         s += str(n * i)
     return s
+
 
 def ispandigital(n):
     for d in range(1, 10):
         if str(d) not in str(n):
             return False
     return True
+
 
 def main():
     m = 0
@@ -24,4 +26,3 @@ def main():
 
 if __name__ == "__main__":
     print(main())
-

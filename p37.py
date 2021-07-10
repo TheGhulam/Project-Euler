@@ -5,17 +5,18 @@ start = time.time()
 
 primes = set(sieve(100))
 
+
 def isPrime(n):
     if n in {2, 3, 5, 7}:
         return True
-    if n < 2 or n%2 == 0:
+    if n < 2 or n % 2 == 0:
         return False
-    if n%3 == 0 or n%5 == 0:
+    if n % 3 == 0 or n % 5 == 0:
         return False
-    r = int(n**0.5)
+    r = int(n ** 0.5)
     f = 5
     while f <= r:
-        if n%f == 0 or n%(f+2) == 0:
+        if n % f == 0 or n % (f + 2) == 0:
             return False
         f += 6
     return True
@@ -28,11 +29,13 @@ def truncs(n):
         yield int(n_str[k:])
         yield int(n_str[:-k])
 
+
 def check(n):
     for t in truncs(n):
         if not isPrime(t):
             return False
     return True
+
 
 c = s = 0
 # Ignoring single digit primes
@@ -44,6 +47,6 @@ while c < 11:
         print(i)
     i += 2
 
-print('sum', s)
+print("sum", s)
 
-print(f'Time taken: {time.time() - start:.4}')
+print(f"Time taken: {time.time() - start:.4}")

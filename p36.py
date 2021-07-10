@@ -1,6 +1,9 @@
 def palindromic(n):
-    if str(n) == str(n)[::-1]: return True
-    else: return False
+    if str(n) == str(n)[::-1]:
+        return True
+    else:
+        return False
+
 
 s = 0
 for i in range(1_000_000):
