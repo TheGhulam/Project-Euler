@@ -1,10 +1,6 @@
 from p7 import sieve
 import time
 
-start = time.time()
-
-primes = set(sieve(100))
-
 
 def isPrime(n):
     if n in {2, 3, 5, 7}:
@@ -37,16 +33,23 @@ def check(n):
     return True
 
 
-c = s = 0
-# Ignoring single digit primes
-i = 11
-while c < 11:
-    if check(i):
-        c += 1
-        s += i
-        print(i)
-    i += 2
+def main():
+    start = time.time()
 
-print("sum", s)
+    c = s = 0
+    # Ignoring single digit primes
+    i = 11
+    while c < 11:
+        if check(i):
+            c += 1
+            s += i
+            print(i)
+        i += 2
 
-print(f"Time taken: {time.time() - start:.4}")
+    print("sum", s)
+
+    print(f"Time taken: {time.time() - start:.4}")
+
+
+if __name__ == "__main__":
+    main()
