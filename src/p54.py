@@ -58,13 +58,13 @@ def main():
     value_dict.update((str(x), x) for x in range(2, 10))
 
     player1_wins = 0
-    with open("p054_poker.txt") as f:
+    with open("../data/p054_poker.txt") as f:
         for line in f:
             cards = [(value_dict[x[0]], x[1]) for x in line.split(" ")]
             player1_wins += eval_hand(cards[:5]) > eval_hand(cards[5:])
 
-    # print(player2_wins)
+    return player1_wins
 
 
 if __name__ == "__main__":
-    main()
+    print(main())
