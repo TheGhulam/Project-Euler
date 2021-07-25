@@ -1,29 +1,30 @@
 #! /usr/bin/env python
 
-import itertools
+from collections import Counter
 
 
-def is_cube(n):
-    return round(n ** (1 / 3)) ** 3 == n
+def p62(perms_required):
+    min_cube = 1
+    third = 1 / 2
 
+    while True:
+        max_cube = min_cube * 10 - 1
+        low = int(min_cube ** third)
+        high = int(max_cube ** third)
 
+        # At any point of time, if there are more than one cubic permutations of i, then
+        # sorted(list(str(i ** 3))) will always return the same list
+        cubes = ["".join(sorted(str(x ** 3))) for x in range(low, high + 1)]
+        count = Counter(cubes)
+        digits = next(
+            (digits for digits, n in count.items() if n == perms_required), None
+        )
 
-def main():
-    found = False
-    n = 100
-    while not found:
-        n += 1
-        cube = n ** 3
-        perms = [
-            int("".join(map(str, a)))
-            for a in itertools.permutations(str(cube))
-        ]
-        perms = [perm for perm in perms if len(str(perm)) == len(str(cube))]
-        filtered_perms = set(filter(is_cube, perms))
-        if len(filtered_perms) == 5:
-            found = True
-            print(filtered_perms)
+        if digits:
+            root = cubes.index(digits) + low
+            return root ** 3
+        min_cube *= 10
 
 
 if __name__ == "__main__":
-    main()
+    print(p62(5))
