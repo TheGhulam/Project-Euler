@@ -10,7 +10,6 @@
 # (3, 1176): [(6, 7626)]
 # (3, 1225): [(7, 2512), (6, 2556)]
 
-# Here’s the full set (study61.txt) of all 293 relations.
 # 3. Run through the dictionary and find every six member family that follows the criteria.
 # 3a. Make sure the last two digits of the last number match the first two digits of the first number.
 
