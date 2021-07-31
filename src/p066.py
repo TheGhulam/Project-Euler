@@ -4,24 +4,23 @@ import math
 from itertools import count
 
 
-
 def is_square(n):
     return math.isqrt(n) * math.isqrt(n) == n
 
 
 def CF_of_sqrt(n):
-    """ Compute the continued fraction representation of the
-        square root of N.
+    """Compute the continued fraction representation of the
+    square root of N.
 
-        The first element in the returned array is the whole
-        part of the fraction. The others are the denominators
-        upto (and not including) the point where it starts
-        repeating.
+    The first element in the returned array is the whole
+    part of the fraction. The others are the denominators
+    upto (and not including) the point where it starts
+    repeating.
 
-        Uses the algorithm explained here:
-        http://www.mcs.surrey.ac.uk/Personal/R.Knott/Fibonacci/cfINTRO.html
-        In the section named: "Methods of finding continued
-        fractions for square roots"
+    Uses the algorithm explained here:
+    http://www.mcs.surrey.ac.uk/Personal/R.Knott/Fibonacci/cfINTRO.html
+    In the section named: "Methods of finding continued
+    fractions for square roots"
     """
     if is_square(n):
         return [int(math.sqrt(n))]
@@ -49,10 +48,11 @@ def CF_of_sqrt(n):
 
     return ans
 
+
 def contfrac_to_frac(seq):
     num, den = 1, 0
     for u in reversed(seq):
-        num, den = den + num*u, num
+        num, den = den + num * u, num
     return num, den
 
 
@@ -63,7 +63,7 @@ def main():
             continue
         else:
             cf = CF_of_sqrt(d)
-            for i in range(1, len(cf)+1):
+            for i in range(1, len(cf) + 1):
                 h, k = contfrac_to_frac(cf[:i])
                 Pell_type_approximation = (h ** 2) - (d * (k ** 2))
                 if Pell_type_approximation == 1:
@@ -71,7 +71,6 @@ def main():
                         m_h = h
                         m_d = d
     return m_h, m_d
-
 
 
 if __name__ == "__main__":
