@@ -1,5 +1,9 @@
 #! /usr/bin/env python
 
+# Each convergent, i, of continued fraction of sqrt(D)
+# n_i = a_i * n_i-1 + n_i-2
+# d_i = a_i * d_i-1 + d_i-2
+
 
 import math
 
