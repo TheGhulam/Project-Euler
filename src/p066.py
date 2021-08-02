@@ -1,7 +1,6 @@
 #! /usr/bin/env python
 
 import math
-from itertools import count
 
 
 def is_square(n):
