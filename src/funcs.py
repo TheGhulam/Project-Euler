@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 from math import log, ceil
+from functools import reduce
 
 
 def isPrime(n):
@@ -35,3 +36,12 @@ def nthPrime(n):
     else:
         up = ceil(n * (log(n) + log(log(n))))
     return list(sieve(up))[n - 1]
+
+
+def factors(n):
+    return set(
+        reduce(
+            list.__add__,
+            ([i, n // i] for i in range(1, int(n ** 0.5) + 1) if n % i == 0),
+        )
+    )
